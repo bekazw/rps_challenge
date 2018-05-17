@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+        <div id = "app">
+                {{message}}
+                <p v-if ="isA">A</p>
+                <p v-if ="isB">B</p>
+        </div>
+</body>
+<script>
+   
+    let app = new Vue({
+        el: '#app',
+        data : {
+            message : "AA",
+            isA : true,
+            isB : true
+        }
+    })
+</script>
+</html>
