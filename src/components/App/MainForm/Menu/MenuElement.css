@@ -1,0 +1,15 @@
+.MainMenuElement {
+    position: absolute;
+    left: 50%;
+    border : 1px solid black;
+    text-align:  center;
+    font: 40px "Times New Roman";
+    width : 200px;
+    height: 45px;
+    margin-left: -100px;
+}
+#ME0 { top : 150px;}
+#ME1 { top : 200px;}
+#ME2 { top : 250px;}
+#ME3 { top : 300px;}
+#ME4 { top : 350px;}

@@ -7,8 +7,15 @@ const initReducer = (state = iState, action ) => {
                 ...state,
                 curPage : "/main",
                 curUserId : action.userId
-            }
-            
+            };
+            break;
+        case "NAV" :
+            return {
+                ...state,
+                curField : action.path,
+                curUserId : state.curUserId
+            };
+            break;
         default  :
             return state
     }

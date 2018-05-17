@@ -3,6 +3,6 @@ let LogInAction = (CurUserId) => {
         type : "LOG_IN",
         userId : CurUserId
     }
-}
+};
 
 export default LogInAction;
