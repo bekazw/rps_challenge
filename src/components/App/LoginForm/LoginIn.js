@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import './LoginForm.css';
 
+//redux
+import { connect } from 'react-redux';
+import LogInAction from '../../../redux/LogAction';
 
 class ComLogIn extends Component {
     constructor (props) {
@@ -23,14 +26,14 @@ class ComLogIn extends Component {
             })
         }
     }
-    tryToLogIn = () =>{
+    tryToLogIn = (el) =>{
         fetch("http://localhost:1000/auth/"+this.state.curLogin+"/"+this.state.curPass+"")   
         .then(function(response) {
           return response.json()
-        }).then(function(json) {
-            console.dir(json);
+        }).then(function(json) {            
           if (json !== 404) {  
-             console.log("Welcome")          
+              console.log(json.lid);
+              el.props.RTryLogin(json.lid)          
             }
         }).catch(function(ex) {
           console.log('parsing failed', ex)
@@ -76,7 +79,7 @@ class ComLogIn extends Component {
                     type="submit" 
                     className="btn btn-primary"
                     id = "LogBut"
-                    onClick = {this.tryToLogIn}
+                    onClick = {()=>{this.tryToLogIn(this)}}
                     >
                     LogIn
                 </button>  
@@ -90,7 +93,18 @@ class ComLogIn extends Component {
         )
     }
 }
+const mapState = (state) => {
+    return {
+        xx : state.curPage
+    }
+}
 
-export default ComLogIn;
+const mapDispatch = (dispatch) => {
+    return {
+        RTryLogin : (id) => {dispatch(LogInAction(id))}
+    }
+};
+
+export default connect(mapState, mapDispatch)(ComLogIn);
 
 //<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
