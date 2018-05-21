@@ -1,0 +1,18 @@
+.LoginForm {
+    width: 400px;
+    position: absolute;
+    left: 70%;
+    top: 10%;    
+}
+
+.LogInInput {
+    text-align: center;
+}
+#RegBut {
+    position: absolute;
+    left: 10%;
+}
+#LogBut {
+    position: absolute;
+    left: 70%;
+}
