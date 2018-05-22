@@ -1,16 +1,28 @@
 <template>
   <div class="hello">
+    <p>!! {{usLogin}} </p>
     <form>
       <div class="form-group">
         <label for="AuthPageLogin">Email address</label>
-        <input type="email" class="form-control" id="AuthPageLogin" aria-describedby="emailHelp" placeholder="Enter email" v-model = "AuthLogin">
+        <input 
+          type="email" 
+          class="form-control" 
+          id="AuthPageLogin" 
+          aria-describedby="emailHelp" 
+          placeholder="Enter email" 
+          v-model = "AuthLogin">
       </div>
       <div class="form-group">
         <label for="AuthPageLogin">Password</label>
-        <input type="password" class="form-control" id="AuthPagePass" placeholder="Password" v-model = "AuthPass">
+        <input 
+          type="password" 
+          class="form-control" 
+          id="AuthPagePass" 
+          placeholder="Password" 
+          v-model = "AuthPass">
       </div>
       
-      <button type="submit" class="btn btn-primary" v-on:click = "showBind">LogIn</button>
+      <button type="submit" class="btn btn-primary" v-on:click = "TryLogon">LogIn</button>
       <button type="submit" class="btn btn-warning" >RegIn</button>
     </form>
   </div>
@@ -25,9 +37,14 @@ export default {
       AuthPass : ''
     }
   },
+  computed : {
+    usLogin() {
+      return this.$store.state.curLogin
+    }
+  },
   methods : {
-    showBind () {
-      console.log(this.AuthLogin + " " + this.AuthPass)
+    TryLogon () {
+      this.$store.commit('tryToLogin', this.AuthLogin, this.AuthPass)
     }
   }
 }
