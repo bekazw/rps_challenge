@@ -4,9 +4,13 @@ import App from './App.vue'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap-vue/dist/bootstrap-vue.css"
 
+import Vuex from 'vuex';
+import store from './vues';
+
 Vue.use(BootstrapVue)
 
 new Vue({
-  el: '#app',
+  el: '#app', 
+  store,
   render: h => h(App)
 })

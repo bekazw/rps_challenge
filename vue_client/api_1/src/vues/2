@@ -1,0 +1,44 @@
+import Vuex from 'vuex';
+
+Vue.use(Vuex);
+
+
+const store = new Vuex.Store ({
+  state : {
+    curLogin : "",
+    curPass  : "",
+    curId : -1
+  },
+  actions : {
+    login({commit}, id) {
+      commit ('LOGIN', id)
+    }
+  },
+  mutations : {
+    LOGIN (state, id) {
+      state.curId = id
+    }
+  },
+  getters : {
+    curId (state) {
+      return state.curId
+    }
+  }
+})
+
+
+new Vue({
+  el: '#app',
+  store,
+  computed : {
+    curId () {
+      return this.$store.getters.curId
+    }
+  },
+  methods :{ 
+    logIn () {
+      this.$store.dispatch('login' , { text : 10})
+    }
+  },
+  render: h => h(App)
+})

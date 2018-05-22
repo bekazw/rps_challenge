@@ -1,20 +1,23 @@
 <template>
   <div id="app">
-      <p>!! </p>
-      <AuthPage />
+      <p>{{msg}}</p>
+      <AuthPage  />
   </div>
 </template>
 
 <script>
 import AuthPage from './components/AuthPage.vue';
 
+import { mapGetters } from 'vuex';
+
 export default {
-  name: 'app',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+  name: 'app',  
+  data : {
+      msg: "-1"
   },
+  computed : mapState({
+    msg : state.curLogin
+    }),
   components : {
     AuthPage
   }
