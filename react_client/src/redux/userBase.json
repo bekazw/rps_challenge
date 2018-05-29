@@ -1,0 +1,12 @@
+{
+    "u0" : {
+        "login" : "admin",
+        "pass" : "admin",
+        "id" : 0
+    },
+    "u1" : {
+        "login" : "user",
+        "pass" : "user",
+        "id" : 1
+    }
+}

@@ -16,6 +16,18 @@ const initReducer = (state = iState, action ) => {
                 curUserId : state.curUserId
             };
             break;
+        case "LOG_OFF" : 
+            return {               
+                curPage : '/auth',
+                curField : "",
+                curUserId : -1,
+                curCook : ""
+            };
+        case "NAV_REG" : 
+            return {
+                ...state,
+                curPage : "/reg"
+            }
         default  :
             return state
     }

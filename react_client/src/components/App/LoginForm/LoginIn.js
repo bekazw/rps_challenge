@@ -4,6 +4,8 @@ import './LoginForm.css';
 //redux
 import { connect } from 'react-redux';
 import LogInAction from '../../../redux/LogAction';
+import RegAction from '../../../redux/RegAction';
+import UserBase from '../../../redux/userBase.json';
 
 class ComLogIn extends Component {
     constructor (props) {
@@ -11,7 +13,7 @@ class ComLogIn extends Component {
         this.state = {
             curLogin : "",
             curPass  : ""
-        }
+        }       
     }
 
     valueUpdate = (e, who) => {
@@ -27,7 +29,7 @@ class ComLogIn extends Component {
         }
     }
     tryToLogIn = (el) =>{
-        fetch("http://localhost:1000/auth/"+this.state.curLogin+"/"+this.state.curPass+"")   
+      /*  fetch("http://localhost:1000/auth/"+this.state.curLogin+"/"+this.state.curPass+"")   
         .then(function(response) {
           return response.json()
         }).then(function(json) {            
@@ -37,7 +39,19 @@ class ComLogIn extends Component {
             }
         }).catch(function(ex) {
           console.log('parsing failed', ex)
-        })   
+        }) */
+        //local base test
+        if (this.state.curLogin === UserBase["u0"]["login"]) {
+            if ( this.state.curPass === UserBase["u0"]["pass"]) {
+                this.props.RTryLogin();
+            }
+            else {
+                alert("Pass err")
+            }
+        }
+        else {
+            alert ("Login err")
+        }
     }
 
     render() {
@@ -86,7 +100,8 @@ class ComLogIn extends Component {
                 <button 
                     type="submit" 
                     className="btn btn-warning" 
-                    id = "RegBut">
+                    id = "RegBut"
+                    onClick = {()=>this.props.RRegPage()}>
                     Registration
                 </button>               
             </div>
@@ -101,7 +116,8 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
     return {
-        RTryLogin : (id) => {dispatch(LogInAction(id))}
+        RTryLogin : (id) => {dispatch(LogInAction(id))},
+        RRegPage : () => {dispatch(RegAction())}
     }
 };
 
