@@ -1,6 +1,6 @@
 let iState = {
     curPage : '/auth',
-    curField : "",
+    curField : "menu",
     curUserId : -1,
     curCook : ""
 }

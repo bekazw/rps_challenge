@@ -5,35 +5,35 @@ import { connect } from 'react-redux';
 
 //comps
 import MainMenuElement from './Menu/MenuElement';
-
+import FAI from './AI/fieldAI';
 
 class MainForm extends Component {
     render() {
         switch (this.props.MainField) {      
             case "ai" :
                 return (
-                    <div className = "MainAIField">
-                        AI
+                    <div className = "MainField">
+                        <FAI />
                     </div>
                 );
                 break;
             case "champ" : 
                 return (
-                    <div className = "MainChampField">
+                    <div className = "MainField">
                         Champ
                     </div>
                 );
                 break;
             case "duel" :
                 return (
-                    <div className = "MainDuelField">
+                    <div className = "MainField">
                         Duel
                     </div>
                 );
                 break;
             case "stats" :
                 return (
-                    <div className = "MainStatField">
+                    <div className = "MainField">
                         Stat
                     </div>
                 );
