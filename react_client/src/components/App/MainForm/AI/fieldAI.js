@@ -1,6 +1,8 @@
 import React from 'react';
 import UserBar from './bar';
 
+import "./fieldAI.css";
+
 let FAI = () => {
     return (
         <div className="AI">

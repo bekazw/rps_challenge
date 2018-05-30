@@ -1,0 +1,12 @@
+#bar {
+
+}
+
+.bar_gui {
+    position: relative;
+    top: 100px;
+    margin-left: 25px;
+    width: 100px;
+    height: 100px;
+    border: 1px solid green;
+}
